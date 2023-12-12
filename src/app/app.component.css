@@ -1,0 +1,18 @@
+.main {
+  padding: 6rem 12rem;
+  display: flex;
+}
+
+.left-section {
+  flex: 1;
+}
+
+
+.right-section {
+  align-self: flex-end;
+  flex: 1;
+}
+
+.about-me {
+  padding: 0 1rem;
+}
