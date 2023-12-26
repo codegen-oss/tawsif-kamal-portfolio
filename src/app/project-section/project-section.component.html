@@ -1,5 +1,12 @@
 <div class="container">
-  @for (workExperience of workExperiences; track $index) {
-  <app-project-card [workExperience]="workExperience" />
+  @for (project of projects; track $index) {
+  <app-project-card
+    class="project-card"
+    [project]="project"
+    [hoveredProject]="hoveredProject"
+    [ngClass]="{ blurred: hoveredProject && hoveredProject !== project.name }"
+    (mouseenter)="hoveredProject = project.name"
+    (mouseleave)="hoveredProject = null"
+  />
   }
 </div>

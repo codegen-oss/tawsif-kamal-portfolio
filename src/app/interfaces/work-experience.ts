@@ -4,4 +4,6 @@ export interface WorkExperience {
   company: string;
   description: string;
   skills: string[];
+  logoSrc: string;
+  additionalInfo?: string;
 }

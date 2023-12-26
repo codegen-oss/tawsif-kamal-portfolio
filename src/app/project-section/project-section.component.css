@@ -1,6 +1,7 @@
-.container {
-  justify-self: flex-end;
-  border: 1px red solid;
-  width: 100%;
+.blurred {
+  opacity: 60%; /* Adjust the pixel value to increase/decrease the blur */
 }
 
+.project-card {
+  transition: opacity 0.2s ease-in-out;
+}

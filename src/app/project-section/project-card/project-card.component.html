@@ -1,0 +1,33 @@
+<a
+  [ngStyle]="{ color: 'inherit', textDecoration: 'none' }"
+  [href]="project.link"
+  target="_blank"
+>
+  <div class="container">
+    <div class="left-section">
+      <img [src]="project.imageUrl" />
+    </div>
+    <div class="right-section">
+      <div class="header-section">
+        <p class="project-name">{{ project.name }}</p>
+        @if (project.linkIconSrc) {
+        <img class="icon" [src]="project.linkIconSrc" />
+        }
+      </div>
+
+      <p>
+        {{ project.description }}
+      </p>
+
+      @if(project.prize) {
+      <p class="project-prize">🏆 {{ project.prize }}</p>
+      }
+
+      <div class="skill-section">
+        @for (skill of project.skills; track $index) {
+        <app-tag [text]="skill" />
+        }
+      </div>
+    </div>
+  </div>
+</a>

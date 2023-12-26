@@ -1,24 +1,77 @@
 <main class="main">
   <div class="left-section">
-    <h1>Tawsif Kamal</h1>
-    <h3>CS &#64; Georgia Tech | IoT Intern &#64; IBM</h3>
-    <h4>I build web applications and experiment with Reinforcement Learning</h4>
+    <h1 class="name">Tawsif Kamal</h1>
+    <h3 class="description">CS &#64; Georgia Tech | IoT Intern &#64; IBM</h3>
+    <h4 class="punchline">
+      Fullstack developer interested in Reinforcement Learning
+    </h4>
+
+    <img class="profile-image" src="assets/images/profile.jpeg" />
+    <app-navigation
+      [selectedItem]="currentSection"
+      (sectionChangeEvent)="navigateToSection($event)"
+    />
+
+    <div class="profile-icons">
+      <a
+        href="https://www.youtube.com/channel/UCfYIV34hpU_DXoOnYGngfWQ"
+        target="_blank"
+      >
+        <img src="assets/profileIcons/youtube-outline.png" />
+      </a>
+      <a href="https://www.linkedin.com/in/tawsif-kamal/" target="_blank">
+        <img src="assets/profileIcons/linkedin-outline.png" />
+      </a>
+      <a href="https://github.com/tawsifkamal" target="_blank">
+        <img src="assets/profileIcons/github-outline.png" />
+      </a>
+      <a href="https://medium.com/@tawsifkamal" target="_blank">
+        <img src="assets/profileIcons/medium-outline.png" />
+      </a>
+    </div>
   </div>
   <div class="right-section">
-    <p class="about-me">
-      Back in 2012, I decided to try my hand at creating custom Tumblr themes
-      and tumbled head first into the rabbit hole of coding and web development.
-      Fast-forward to today, and I’ve had the privilege of building software for
-      an advertising agency, a start-up, a student-led design studio, and a huge
-      corporation. My main focus these days is building products and leading
-      projects for our clients at Upstatement. In my free time I've also
-      released an online video course that covers everything you need to know to
-      build a web app with the Spotify API. When I’m not at the computer, I’m
-      usually rock climbing, hanging out with my wife and two cats, or running
-      around Hyrule searching for Korok seeds K o r o k s e e d s .
-    </p>
-    <app-project-section />
+    <div class="about-me" id="ABOUT">
+      Hey! I'm a 3rd year Computer Science student at Georgia Tech with a
+      concentration in AI and Networking. I'm currently interning as an IoT
+      Developer &#64; IBM and have previously worked at NCR and LogicomUSA. I
+      also help make apps for non-profits at my school club Bits of Good.<br /><br />
+
+      My journey includes delving into Reinforcement Learning + robotics,
+      marveling at how cool it is to use math and code to teach a robot to act
+      like a human. I'm equally fascinated by the nuances of full-stack
+      development, continually exploring Angular, Vue, React and the intricate
+      differences between frontend/backend frameworks.<br /><br />
+
+      When I'm not at the computer, you can find me tinkering with my camera,
+      hitting the gym, and eating out!
+    </div>
+
+    <app-work-experience-section id="EXPERIENCE" />
+
+    <div class="divider"></div>
+
+    <app-project-section id="PROJECTS" />
+
+    <div class="divider"></div>
+
+    <div class="article-section">
+      <div class="article-section-header">
+        <h1>Articles</h1>
+        <img src="assets/images/linkClipIcon.png" />
+      </div>
+
+      @for (article of articles; track $index) {
+      <div class="article-list">
+        <a class="article-link" [href]="article.link" target="_blank">{{
+          article.name
+        }}</a>
+      </div>
+      }
+    </div>
   </div>
+
+  <div class="mouse-follower"></div>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

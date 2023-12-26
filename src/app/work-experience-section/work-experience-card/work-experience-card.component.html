@@ -1,0 +1,29 @@
+<div class="container">
+  <div
+    class="left-section"
+    [ngStyle]="{ gap: workExperience.additionalInfo ? '2.3rem' : '1.6rem' }"
+  >
+    <p>{{ workExperience.dateWorked }}</p>
+    <img [src]="workExperience.logoSrc" class="logo" />
+  </div>
+  <div class="right-section">
+    <div class="role-and-company-section">
+      <span>{{ workExperience.role }}</span>
+      <span class="dot"></span>
+      <span>{{ workExperience.company }}</span>
+      @if (workExperience.additionalInfo) {
+      <p class="additional-info">{{ workExperience.additionalInfo }}</p>
+      }
+    </div>
+
+    <p>
+      {{ workExperience.description }}
+    </p>
+
+    <div class="skill-section">
+      @for (skill of workExperience.skills; track $index) {
+      <app-tag [text]="skill" />
+      }
+    </div>
+  </div>
+</div>
