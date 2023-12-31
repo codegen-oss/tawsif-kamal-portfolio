@@ -32,17 +32,17 @@ export class AppComponent implements AfterViewInit {
 
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
-  ngOnInit() {
-    const follower = document.querySelector('.mouse-follower') as HTMLElement;
-    follower.style.display = 'block';
-  }
-
   ngAfterViewInit() {
     this.offsets = {
       ABOUT: this.calculateOffset('ABOUT', 70),
       EXPERIENCE: this.calculateOffset('EXPERIENCE', 70),
       PROJECTS: this.calculateOffset('PROJECTS', 70),
     };
+
+    const follower = this.document.querySelector(
+      '.mouse-follower'
+    ) as HTMLElement;
+    follower.style.display = 'block';
   }
 
   private calculateOffset(sectionId: string, padding: number): number {
@@ -61,8 +61,8 @@ export class AppComponent implements AfterViewInit {
     // Get current scroll position
     const scrollPosition =
       window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
+      this.document.documentElement.scrollTop ||
+      this.document.body.scrollTop ||
       0;
 
     if (

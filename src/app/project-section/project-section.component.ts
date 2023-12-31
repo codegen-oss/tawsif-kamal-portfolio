@@ -46,7 +46,7 @@ export class ProjectSectionComponent {
     {
       name: 'Shoe price detection using computer vision',
       description:
-        'Trained a custom ResNet and VGG image classification model to to detect the price of a shoe using scraped images from several sites including Nike, Addidas, Puma and more.',
+        'Trained a custom ResNet and VGG image classification model to to detect the price of a shoe using scraped images from several sites including Nike, Adidas, Puma and more.',
       imageUrl: 'assets/images/shoePriceDetectionThumbnail.png',
       skills: ['Pytorch', 'Python', 'Matplotlib', 'Machine Learning'],
       linkIconSrc: 'assets/images/linkIcon.png',
