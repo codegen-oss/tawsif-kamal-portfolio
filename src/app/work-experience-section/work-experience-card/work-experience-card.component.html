@@ -4,16 +4,38 @@
     [ngStyle]="{ gap: workExperience.additionalInfo ? '2.3rem' : '1.6rem' }"
   >
     <p>{{ workExperience.dateWorked }}</p>
-    <img [src]="workExperience.logoSrc" class="logo" />
+    @if (screen.isLarge) {
+    <img
+      [src]="workExperience.logoSrc"
+      class="logo"
+      [ngStyle]="
+        workExperience.additionalInfo && screen.isLarge
+          ? { 'margin-top': '-2.45em' }
+          : { 'margin-top': '-1.2em' }
+      "
+    />
+    }
   </div>
   <div class="right-section">
     <div class="role-and-company-section">
-      <span>{{ workExperience.role }}</span>
-      <span class="dot"></span>
-      <span>{{ workExperience.company }}</span>
-      @if (workExperience.additionalInfo) {
-      <p class="additional-info">{{ workExperience.additionalInfo }}</p>
-      }
+      <div class="role-and-company-container">
+        @if (screen.isSmall || screen.isMedium) {
+        <div class="role-and-company-section">
+          <p>{{ workExperience.company }}</p>
+          <img [src]="workExperience.logoSrc" class="logo" />
+        </div>
+
+        <p class="role">{{ workExperience.role }}</p>
+
+        } @else {
+        <span>{{ workExperience.role }}</span>
+        <span class="dot"></span>
+        <span>{{ workExperience.company }}</span>
+
+        @if (workExperience.additionalInfo) {
+        <p class="additional-info">{{ workExperience.additionalInfo }}</p>
+        } }
+      </div>
     </div>
 
     <p>

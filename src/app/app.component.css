@@ -1,23 +1,9 @@
 .main {
-  padding: 6rem 12rem;
-  display: flex;
+  padding: 2rem;
 }
 
-.left-section {
-  flex: 1;
-  position: sticky;
-  height: max-content;
-  top: 10%; /* Adjust this value as needed, 0 will stick it to the top */
-}
-
-.right-section {
-  align-self: flex-end;
-  flex: 1;
-}
-
-.about-me {
-  padding: 0 1rem;
-  margin-bottom: 4rem;
+.navigation {
+  display: none;
 }
 
 .divider {
@@ -25,7 +11,8 @@
   height: 1px;
   background-color: var(--primary-text-color);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  margin: 4rem 0;
+  margin-top: 4rem;
+  margin-bottom: 1em;
   opacity: 10%;
   border-radius: 30px;
 }
@@ -35,8 +22,7 @@
   font-weight: 700;
   color: var(--secondary-text-color);
   letter-spacing: 2px;
-  font-size: 3rem;
-  margin-left: -5px;
+  font-size: 2rem;
 }
 
 .punchline {
@@ -45,8 +31,8 @@
 
 .profile-image {
   object-fit: cover;
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 300px;
   object-position: -40% 20%;
   border-radius: 10px;
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
@@ -55,6 +41,7 @@
 .profile-icons {
   display: flex;
   gap: 1rem;
+  margin: 1em 0;
 }
 
 .mouse-follower {
@@ -82,7 +69,7 @@
   cursor: pointer;
 }
 
-.article-section h1 {
+.title {
   font-weight: bolder;
   margin: 0;
 }
@@ -116,6 +103,65 @@
 
 .description {
   font-family: Inter;
-  font-size: 1.3rem;
   color: var(--secondary-text-color);
+}
+@media (min-width: 760px) {
+  .name {
+    font-size: 3rem;
+    margin-left: -5px;
+    font-family: Inter;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    letter-spacing: 2px;
+    font-size: 2.3rem;
+  }
+  .description {
+    font-family: Inter;
+    font-size: 1.3rem;
+    color: var(--secondary-text-color);
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigation {
+    display: block;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-text-color);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin: 4rem 0;
+    opacity: 10%;
+    border-radius: 30px;
+  }
+
+  .main {
+    padding: 0 6rem;
+    display: flex;
+    gap: 2em;
+  }
+
+  .left-section {
+    flex: 1;
+    position: sticky;
+    height: max-content;
+    top: 10%; /* Adjust this value as needed, 0 will stick it to the top */
+  }
+
+  .right-section {
+    align-self: flex-end;
+    flex: 1;
+    padding: 6rem 0;
+  }
+
+  .about-me {
+    margin-bottom: 4rem;
+  }
+
+  .profile-icons {
+    display: flex;
+    gap: 1rem;
+  }
 }

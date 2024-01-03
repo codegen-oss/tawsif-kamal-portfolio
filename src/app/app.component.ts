@@ -5,8 +5,8 @@ import { RouterOutlet } from '@angular/router';
 import { WorkExperienceSectionComponent } from './work-experience-section/work-experience-section.component';
 import { TagComponent } from './tag/tag.component';
 import { ProjectSectionComponent } from './project-section/project-section.component';
-import { AboutMeComponent } from './about-me/about-me.component';
 import { Article } from './interfaces/article';
+import { ScreenSizeService } from './services/screen-size.service';
 
 @Component({
   selector: 'app-root',
@@ -17,11 +17,11 @@ import { Article } from './interfaces/article';
     WorkExperienceSectionComponent,
     TagComponent,
     NavigationComponent,
-    AboutMeComponent,
     ProjectSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  providers: [ScreenSizeService],
 })
 export class AppComponent implements AfterViewInit {
   offsets = {
@@ -30,7 +30,10 @@ export class AppComponent implements AfterViewInit {
     PROJECTS: 0,
   };
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    public screen: ScreenSizeService
+  ) {}
 
   ngAfterViewInit() {
     this.offsets = {
@@ -38,6 +41,7 @@ export class AppComponent implements AfterViewInit {
       EXPERIENCE: this.calculateOffset('EXPERIENCE', 70),
       PROJECTS: this.calculateOffset('PROJECTS', 70),
     };
+
 
     const follower = this.document.querySelector(
       '.mouse-follower'

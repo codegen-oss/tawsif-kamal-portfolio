@@ -2,6 +2,12 @@
   opacity: 60%; /* Adjust the pixel value to increase/decrease the blur */
 }
 
+.title {
+  font-weight: bolder;
+  margin: 0;
+}
+
+
 .project-card {
   transition: opacity 0.2s ease-in-out;
 }

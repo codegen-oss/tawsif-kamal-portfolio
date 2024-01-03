@@ -16,6 +16,8 @@
 }
 
 
+
+
 html,
 body {
   margin: 0;
@@ -23,7 +25,9 @@ body {
   color: var(--primary-text-color);
   scroll-behavior: smooth;
   scroll-padding: 2em;
+
 }
+
 
 .mat-typography {
   font-family: var(--font-family);

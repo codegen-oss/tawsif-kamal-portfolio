@@ -1,54 +1,52 @@
 .container {
-  display: flex;
-  padding: 1rem;
-  gap: 2rem;
+  padding: 1em 0;
 }
 
 .left-section {
   display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  padding-top: 0.4rem;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: flex-end;
 }
-
 
 /* Use a pseudo-element for the dot for better control */
 .dot::before {
   content: "·"; /* This is the dot */
   font-weight: bold; /* Makes the dot thicker */
-  display: inline-block;
   vertical-align: super; /* Ensures it's aligned with the middle of text */
   position: relative;
-  bottom: -0.2rem;
+  bottom: -0.1rem;
 }
 
 .dot {
-  margin: 0 5px; /* Adjust spacing around the dot as needed */
+  margin: 0 5px;
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
-  font-size: large;
 }
 
 .additional-info {
   color: var(--primary-text-color);
   font-weight: 500;
-  margin-top: -1rem;
+  margin-top: -0.5em; 
 }
 
-.role-and-company-section {
+.role-and-company-container {
   font-weight: bolder;
   color: var(--secondary-text-color);
 }
 
+.right-section p {
+  padding: 0;
+  margin: 0;
+}
 
-.logo {
-  object-fit: cover;
-  width: 60px;
-  height: 60px; /* ensure the height is set for object-fit to work effectively */
-  object-position: center;
-  align-self: flex-end;
-  border-radius: 5px;
+.role-and-company-section {
+  display: flex;
+  gap: 0.5em;
+  width: 100%;
+  align-items: flex-start;
+  height: min-content;
 }
 
 .right-section {
@@ -63,6 +61,45 @@
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-p {
-  margin: 0;
+
+.role {
+  color: var(--tertiary-text-color);
+}
+
+.logo {
+  object-fit: cover;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+}
+
+@media (min-width: 1439px) {
+  .container {
+    display: flex;
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .role-and-company-section {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
+  }
+
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    /* padding-top: 0.4rem; */
+  }
+
+  .logo {
+    object-fit: cover;
+    width: 50px;
+    height: 50px; /* ensure the height is set for object-fit to work effectively */
+    object-position: center;
+    align-self: flex-end;
+    border-radius: 5px;
+    margin-top: -1.2em;
+  }
 }

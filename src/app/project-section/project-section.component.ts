@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { Project } from '../interfaces/project';
 import { CommonModule } from '@angular/common';
+import { ScreenSizeService } from '../services/screen-size.service';
 
 @Component({
   selector: 'app-project-section',
@@ -11,6 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './project-section.component.css',
 })
 export class ProjectSectionComponent {
+  constructor(public screen: ScreenSizeService) {}
+
   hoveredProject: string | null = null;
   projects: Project[] = [
     {

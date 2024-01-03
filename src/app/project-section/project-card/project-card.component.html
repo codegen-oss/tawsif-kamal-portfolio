@@ -5,12 +5,19 @@
 >
   <div class="container">
     <div class="left-section">
-      <img [src]="project.imageUrl" />
+      <div class="img-wrapper">
+        <img [src]="project.imageUrl" />
+        @if (project.linkIconSrc && !screen.isLarge) {
+        <img class="icon" [src]="project.linkIconSrc" />
+        }
+      </div>
     </div>
     <div class="right-section">
-      <div class="header-section">
-        <p class="project-name">{{ project.name }}</p>
-        @if (project.linkIconSrc) {
+      <div class="project-name-and-logo-container">
+        <p class="project-name">
+          {{ project.name }}
+        </p>
+        @if (project.linkIconSrc && screen.isLarge) {
         <img class="icon" [src]="project.linkIconSrc" />
         }
       </div>
