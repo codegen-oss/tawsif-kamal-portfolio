@@ -17,7 +17,7 @@ export class ProjectSectionComponent {
   hoveredProject: string | null = null;
   projects: Project[] = [
     {
-      name: 'Deep Q-Learning RL Agent balances a pole',
+      name: 'Deep Q-Learning RL Agent Balances a Pole',
       description:
         "Implemented a Deep-Q-Learning Reinforcement Learning Agent on OpenAI Gym's cartpole environment.",
       imageUrl: 'assets/images/DeepQLearningThumbnail.png',
@@ -32,7 +32,7 @@ export class ProjectSectionComponent {
       link: 'https://youtu.be/vy2XsVGBaKE?si=8VLT_KUc1EeAuhdm',
     },
     {
-      name: 'Monte Carlo RL Agent plays Blackjack',
+      name: 'Monte Carlo RL Agent Plays Blackjack',
       description:
         'Implemented the Monte Carlo Reinforcment Learning algorithm to play the game of Blackjack',
       imageUrl: 'assets/images/blackJackThumbnail.png',
@@ -47,7 +47,7 @@ export class ProjectSectionComponent {
       link: 'https://youtu.be/NeusGkowXR4?si=yhcjE3n9qrPiIXmB',
     },
     {
-      name: 'Shoe price detection using computer vision',
+      name: 'Shoe Price Detection Using Computer Vision',
       description:
         'Trained a custom ResNet and VGG image classification model to to detect the price of a shoe using scraped images from several sites including Nike, Adidas, Puma and more.',
       imageUrl: 'assets/images/shoePriceDetectionThumbnail.png',
