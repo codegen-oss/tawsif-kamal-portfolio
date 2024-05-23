@@ -17,6 +17,22 @@ export class ProjectSectionComponent {
   hoveredProject: string | null = null;
   projects: Project[] = [
     {
+      name: 'TinyGen: An LLM Coding Agent',
+      description:
+        "Created an LLM agent that can create pull requests through natural language prompts given any Github repository.",
+      imageUrl: 'assets/images/tinygen-thumbnail.png',
+      skills: [
+        'Python',
+        'Langchain',
+        'FastAPI',
+        'Docker',
+        'Google Cloud Platform',
+        'Streamlit',
+      ],
+      linkIconSrc: 'assets/images/youtubeIcon.svg',
+      link: 'https://tiny-gen.streamlit.app/',
+    },
+    {
       name: 'Deep Q-Learning RL Agent Balances a Pole',
       description:
         "Implemented a Deep-Q-Learning Reinforcement Learning Agent on OpenAI Gym's cartpole environment.",
@@ -34,7 +50,7 @@ export class ProjectSectionComponent {
     {
       name: 'Monte Carlo RL Agent Plays Blackjack',
       description:
-        'Implemented the Monte Carlo Reinforcment Learning algorithm to play the game of Blackjack',
+        'Implemented the Monte Carlo Reinforcment Learning algorithm to play the game of Blackjack.',
       imageUrl: 'assets/images/blackJackThumbnail.png',
       skills: [
         'Reinforcement Learning',

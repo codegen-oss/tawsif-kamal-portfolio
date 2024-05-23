@@ -16,19 +16,36 @@ export class WorkExperienceSectionComponent {
 
   workExperiences: WorkExperience[] = [
     {
-      role: 'IoT Developer Intern',
+      role: 'Machine Learning Engineering Intern',
+      dateWorked: 'May 2024 - Present',
+      company: 'IBM Consulting',
+      logoSrc: 'assets/images/ibmLogo.svg',
+      description:
+        'Creating a cloud agnostic and open-source LLMOps infrastructure framework using Kubernetes that will allow LLM developers to create end-to-end projects on our platform through Kubeflow, MLFlow, Langserve, Graphana and more.',
+      skills: [
+        'Kubernetes',
+        'Python',
+        'Langchain',
+        'Langserve',
+        'Kubeflow',
+        'MLFLow',
+        'GO-CD',
+        'Azure',
+        'Graphana'
+      ],
+    },
+    {
+      role: 'Data Science Intern',
       dateWorked: 'Jan 2024 - Apr 2024',
       company: 'IBM Consulting',
       logoSrc: 'assets/images/ibmLogo.svg',
       description:
-        'Helping maintain a robotic project of a Jetson Nano that moves around and detects hazardous materials in a room using computer vision. Another future project consists of building a GenAI chatbot through Google Vertex AI and Dialogflow.',
+        'Created a multi-step LLM Agent that is able to answer questions for the client combining information from several pdf files and excel files. Additionally worked on developing code conversion LLM agents on converting legacy Java Struts2 code to Springboot.',
       skills: [
         'Python',
-        'ROS2',
-        'Pytorch',
-        'Machine Learning',
-        'Docker',
-        'IBM Cloud',
+        'Langchain',
+        'Langgraph',
+        'LLMs',
         'Google Vertex AI',
       ],
     },
