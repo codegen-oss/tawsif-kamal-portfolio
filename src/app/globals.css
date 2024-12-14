@@ -2,13 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --primary-bg-color: #111830;
   --secondary-bg-color: #1a3049;
   --primary-text-color: rgb(182, 194, 223);
   --tertiary-text-color: #54d2d3;
   --secondary-text-color: #E2E8F0;
   --hover-color: #1a3049;
+  --font-family: Inter;
+} */
+
+:root {
+  --primary-bg-color: #f4ece6;
+  --secondary-bg-color: #b98c5f64;
+  --primary-text-color: black;
+  --tertiary-text-color: black;
+  --secondary-text-color: rgb(111, 67, 67);
+  --hover-color: #0050ff;
   --font-family: Inter;
 }
 
@@ -86,5 +96,14 @@ body {
   }
   .menu-line {
     @apply w-[50px] h-[2px] bg-[#a2aecb] mr-4 transition-[width,color] duration-300 ease-in-out;
+  }
+  .social-icon {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(15%) saturate(682%)
+      hue-rotate(346deg) brightness(92%) contrast(88%);
+    transition: filter 0.3s ease-in-out;
+  }
+  .social-icon:hover {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(19%) saturate(1054%)
+      hue-rotate(346deg) brightness(92%) contrast(92%);
   }
 }

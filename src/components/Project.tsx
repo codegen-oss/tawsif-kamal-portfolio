@@ -38,7 +38,7 @@ const Project = ({ project }: { project: ProjectType }) => {
 
         <div className="pl-2 pr-3 flex-1">
           <div className="flex items-center gap-3 mb-3">
-            <h3 className="font-bold text-xl text-white relative group-hover:text-tertiary-foreground transition-all duration-300 ease-in-out">
+            <h3 className="font-bold text-xl text-black relative group-hover:text-tertiary-foreground transition-all duration-300 ease-in-out">
               <span>{project.projectName}</span>
             </h3>
             {project.linkIcon && (

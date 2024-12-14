@@ -1,0 +1,7 @@
+👋🏽 What's up!
+
+I'm a 4th year CS student @ Georgia Tech originally from Toronto, Canada 🇨🇦 and a software developer passionate about building things in the AI space. 
+
+Currently, I'm interning at CodeGen helping automate large-scale codebase refactors using LLMs and codemods. 
+
+I'm also a huge foodie🌮 and love making videos with my Sony A74 Camera📸

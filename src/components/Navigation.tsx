@@ -1,37 +1,45 @@
 "use client";
+
 import React, { useEffect } from "react";
 import MenuItem from "./NavItem";
-import { SectionType, useSectionContext } from "../contexts/SectionProvider";
+import { useSectionContext, SectionType } from "../contexts/SectionProvider";
 
 const Navigation = () => {
-  const { setSection } = useSectionContext();
+  const { setSection, isScrollLocked } = useSectionContext();
 
   useEffect(() => {
+    let isScrolling = false;
+
     const handleScroll = () => {
-      const sections = {
-        [SectionType.ABOUT]: document.getElementById('about'),
-        [SectionType.EXPERIENCE]: document.getElementById('experience'),
-        [SectionType.PROJECTS]: document.getElementById('projects'),
-      };
+      if (!isScrolling && !isScrollLocked) {
+        window.requestAnimationFrame(() => {
+          const sections = [
+            document.getElementById("about"),
+            document.getElementById("experience"),
+            document.getElementById("projects"),
+          ];
 
-      const scrollPosition = window.scrollY + 100; // offset for better detection
+          const viewportHeight = window.innerHeight;
+          const scrollPosition = window.scrollY + viewportHeight * 0.3;
 
-      for (const [section, element] of Object.entries(sections)) {
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setSection(section as SectionType);
-            break;
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            if (section && section.offsetTop <= scrollPosition) {
+              setSection(Object.values(SectionType)[i]);
+              break;
+            }
           }
-        }
+          isScrolling = false;
+        });
       }
+      isScrolling = true;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [setSection]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [setSection, isScrollLocked]);
 
   return (
     <nav className="flex flex-col items-left justify-center gap-3">

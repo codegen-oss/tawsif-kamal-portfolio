@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import SectionProvider from "../contexts/SectionProvider";
 import ProjectProvider from "../contexts/ProjectContext";
@@ -17,6 +18,11 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+});
+
 export const metadata: Metadata = {
   title: "Tawsif's Portfolio",
   description: "Personal portfolio website",
@@ -31,7 +37,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased min-h-screen`}
         suppressHydrationWarning
       >
         <SectionProvider>

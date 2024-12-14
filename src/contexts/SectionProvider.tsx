@@ -1,34 +1,39 @@
 "use client";
 
-import { createContext, useState, useContext, useMemo } from "react";
+import { createContext, useState, useContext } from "react";
 
 export enum SectionType {
-  ABOUT = "ABOUT",
-  EXPERIENCE = "EXPERIENCE",
-  PROJECTS = "PROJECTS",
+  ABOUT = "About",
+  EXPERIENCE = "Experience",
+  PROJECTS = "Projects",
+  ARTICLES = "Articles",
 }
 
-export type SectionStateType = {
+interface SectionContextType {
   section: SectionType;
   setSection: (section: SectionType) => void;
-};
+  isScrollLocked: boolean;
+  setIsScrollLocked: (locked: boolean) => void;
+}
 
-export const SectionContext = createContext<SectionStateType>({
-  section: SectionType.ABOUT,
-  setSection: () => {},
-});
+const SectionContext = createContext<SectionContextType | undefined>(undefined);
 
-export const useSectionContext = () => {
-  return useContext(SectionContext);
+export function useSectionContext() {
+  const context = useContext(SectionContext);
+  if (!context) {
+    throw new Error("useSectionContext must be used within a SectionProvider");
+  }
+  return context;
 };
 
 const SectionProvider = ({ children }: { children: React.ReactNode }) => {
   const [section, setSection] = useState(SectionType.ABOUT);
-
-  const value = useMemo(() => ({ section, setSection }), [section]);
+  const [isScrollLocked, setIsScrollLocked] = useState(false);
 
   return (
-    <SectionContext.Provider value={value}>{children}</SectionContext.Provider>
+    <SectionContext.Provider value={{ section, setSection, isScrollLocked, setIsScrollLocked }}>
+      {children}
+    </SectionContext.Provider>
   );
 };
 

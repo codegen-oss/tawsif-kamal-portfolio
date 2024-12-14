@@ -45,8 +45,6 @@ export type WorkExperienceType = {
   technologies: string[];
 };
 
-
-
 export type ArticleType = {
   _id: string;
   _type: "article";
@@ -57,3 +55,20 @@ export type ArticleType = {
   link: string;
   articleIcon: SanityIconType;
 };
+
+export interface Profile {
+  _id: string;
+  _type: string;
+  _createdAt: string;
+  _updatedAt: string;
+  name: string;
+  bio: string;
+  school: string;
+  currentJob: string;
+  profileImage: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+}

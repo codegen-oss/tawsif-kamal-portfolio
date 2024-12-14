@@ -1,20 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import { useSectionContext, SectionType } from "../contexts/SectionProvider";
 
 type MenuItemProps = {
   text: SectionType;
 };
 
-const MenuItem: React.FC<MenuItemProps> = ({ text }: { text: SectionType }) => {
-  const { section, setSection } = useSectionContext();
+const MenuItem: React.FC<MenuItemProps> = ({ text }) => {
+  const { section, setSection, setIsScrollLocked } = useSectionContext();
   const active = section === text;
 
   const onClick = () => {
-    setSection(text);
     const element = document.getElementById(text.toLowerCase());
     if (element) {
+      setIsScrollLocked(true);
+      setSection(text);
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -26,15 +27,14 @@ const MenuItem: React.FC<MenuItemProps> = ({ text }: { text: SectionType }) => {
     >
       <div
         className={`w-[50px] h-[2px] rounded-full mr-4 
-          bg-gradient-to-r from-[#a2aecb] via-[#8494b7] to-[#a2aecb]
-          transition-all duration-300 ease-in-out 
+          bg-[#b98c5f] opacity-60
+          transition-all duration-200 ease-out
           hover:w-[70px] group-hover:w-[70px]
-          group-hover:from-white group-hover:via-blue-200 group-hover:to-white
-          group-hover:shadow-[0_0_10px_#ffffff80] group-hover:h-[3px]
-          ${active ? "w-[70px] from-white via-blue-200 to-white shadow-[0_0_10px_#ffffff80] h-[3px]" : ""}`}
+          group-hover:opacity-100 group-hover:h-[3px]
+          ${active ? "w-[70px] opacity-100 h-[3px]" : ""}`}
       ></div>
       <span
-        className={`text-xl ${active ? "text-white" : "text-primary-foreground"}`}
+        className={`text-xl font-medium ${active ? "text-[#8b4513]" : "text-[#b98c5f]"}`}
       >
         {text}
       </span>

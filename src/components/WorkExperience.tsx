@@ -45,11 +45,11 @@ const WorkExperience = ({
 
       <div className="pl-2 pr-3 flex-1">
         <div className="flex items-center mb-1">
-          <span className="font-bold text-lg text-white">
+          <span className="font-bold text-lg text-black">
             {workExperience.position}
           </span>
-          <span className="before:content-['·'] before:font-bold before:align-middle mx-[5px] before:text-2xl before:text-white"></span>
-          <span className="font-bold text-lg text-white">
+          <span className="before:content-['·'] before:font-bold before:align-middle mx-[5px] before:text-2xl before:text-black"></span>
+          <span className="font-bold text-lg text-black">
             {workExperience.companyName}
           </span>
         </div>
