@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useCallback } from "react";
-import { useSectionContext, SectionType } from "../contexts/SectionProvider";
+import React from "react";
+import { useSectionContext } from "../contexts/SectionProvider";
+import { SectionType } from "../lib/types";
 
 type MenuItemProps = {
   text: SectionType;
@@ -34,7 +35,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ text }) => {
           ${active ? "w-[70px] opacity-100 h-[3px]" : ""}`}
       ></div>
       <span
-        className={`text-xl font-medium ${active ? "text-[#8b4513]" : "text-[#b98c5f]"}`}
+        className={`text-2xl font-medium ${active ? "text-[#8b4513]" : "text-[#b98c5f]"}`}
       >
         {text}
       </span>

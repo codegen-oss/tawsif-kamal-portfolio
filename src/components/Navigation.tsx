@@ -2,7 +2,8 @@
 
 import React, { useEffect } from "react";
 import MenuItem from "./NavItem";
-import { useSectionContext, SectionType } from "../contexts/SectionProvider";
+import { useSectionContext } from "../contexts/SectionProvider";
+import { SectionType } from "../lib/types";
 
 const Navigation = () => {
   const { setSection, isScrollLocked } = useSectionContext();
@@ -42,7 +43,7 @@ const Navigation = () => {
   }, [setSection, isScrollLocked]);
 
   return (
-    <nav className="flex flex-col items-left justify-center gap-3">
+    <nav className="flex flex-col items-left justify-center gap-3 ml-2 font-outfit">
       <MenuItem text={SectionType.ABOUT} />
       <MenuItem text={SectionType.EXPERIENCE} />
       <MenuItem text={SectionType.PROJECTS} />

@@ -1,20 +1,7 @@
 "use client";
 
 import { createContext, useState, useContext } from "react";
-
-export enum SectionType {
-  ABOUT = "About",
-  EXPERIENCE = "Experience",
-  PROJECTS = "Projects",
-  ARTICLES = "Articles",
-}
-
-interface SectionContextType {
-  section: SectionType;
-  setSection: (section: SectionType) => void;
-  isScrollLocked: boolean;
-  setIsScrollLocked: (locked: boolean) => void;
-}
+import { SectionContextType, SectionType } from "@/lib/types";
 
 const SectionContext = createContext<SectionContextType | undefined>(undefined);
 
@@ -24,14 +11,16 @@ export function useSectionContext() {
     throw new Error("useSectionContext must be used within a SectionProvider");
   }
   return context;
-};
+}
 
 const SectionProvider = ({ children }: { children: React.ReactNode }) => {
   const [section, setSection] = useState(SectionType.ABOUT);
   const [isScrollLocked, setIsScrollLocked] = useState(false);
 
   return (
-    <SectionContext.Provider value={{ section, setSection, isScrollLocked, setIsScrollLocked }}>
+    <SectionContext.Provider
+      value={{ section, setSection, isScrollLocked, setIsScrollLocked }}
+    >
       {children}
     </SectionContext.Provider>
   );

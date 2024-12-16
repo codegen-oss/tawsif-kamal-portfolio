@@ -1,17 +1,12 @@
 import React from "react";
+import { sanityFetch } from "@/sanity/lib/live";
+import { PROJECT_QUERY } from "@/lib/queries";
 import Project from "@/components/Project";
 
-import { defineQuery } from "next-sanity";
-import { sanityFetch } from "@/sanity/lib/live";
-
-import { ProjectType } from "@/utils/types";
-
-const PROJECTS_QUERY = defineQuery(
-  `*[_type == "project"] | order(_createdAt desc)`
-);
+import { ProjectType } from "@/lib/types";
 
 const ProjectSection = async () => {
-  const projects = await sanityFetch({ query: PROJECTS_QUERY });
+  const projects = await sanityFetch({ query: PROJECT_QUERY });
   return (
     <section className="container py-12">
       <div className="flex flex-wrap gap-6">

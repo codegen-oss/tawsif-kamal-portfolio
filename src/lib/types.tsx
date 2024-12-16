@@ -72,3 +72,21 @@ export interface Profile {
     };
   };
 }
+
+export enum SectionType {
+  ABOUT = "About",
+  EXPERIENCE = "Experience",
+  PROJECTS = "Projects",
+  ARTICLES = "Articles",
+}
+
+export enum NavigationType {
+  CODING = "Coding",
+  VIDEOGRAPHY = "Videography",
+}
+export interface SectionContextType {
+  section: SectionType;
+  setSection: (section: SectionType) => void;
+  isScrollLocked: boolean;
+  setIsScrollLocked: (locked: boolean) => void;
+}

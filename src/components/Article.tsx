@@ -1,5 +1,5 @@
 import React from "react";
-import { ArticleType } from "../utils/types";
+import { ArticleType } from "../lib/types";
 import Link from "next/link";
 import { ArrowRightCircle } from "lucide-react";
 

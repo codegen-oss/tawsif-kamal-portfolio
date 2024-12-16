@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
-import { Profile } from "@/utils/types";
+import { Profile } from "@/lib/types";
 import { urlFor } from "@/sanity/lib/image";
 
 const socialLinks = [
@@ -32,21 +32,24 @@ const LeftContainer = ({ profile }: { profile: Profile }) => {
   return (
     <div className="w-2/5 fixed top-0 left-0 h-screen bg-primary p-20">
       <div className="flex flex-col gap-2">
-        <h1 className="font-inter font-bold text-[2.3rem] tracking-[2px] -ml-[5px] text-secondary-foreground">
+        <h1 className="font-inter font-bold text-[2.5rem] tracking-[2px] -ml-[5px] text-secondary-foreground font-outfit">
           {profile.name}
         </h1>
 
-        <h3 className="font-inter font-bold text-xl text-secondary-foreground">
+        <h3 className="font-bold text-xl text-secondary-foreground font-outfit">
           {profile.school} | {profile.currentJob}
         </h3>
 
-        <Image
-          src={urlFor(profile.profileImage).url()}
-          alt="Profile"
-          width={400}
-          height={200}
-          className="object-cover rounded-lg shadow-lg object-[-40%_20%] mb-8"
-        />
+        <div className="relative w-[500px] h-[450px] overflow-hidden mb-8">
+          <Image
+            src={urlFor(profile.profileImage).url()}
+            alt="Profile"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            className="rounded-lg shadow-lg"
+          />
+        </div>
 
         <Navigation />
         <div className="flex gap-4 my-4">

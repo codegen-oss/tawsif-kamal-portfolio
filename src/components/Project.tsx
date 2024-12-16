@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { ProjectType } from "@/utils/types";
+import { ProjectType } from "@/lib/types";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
-import { useProjectContext } from "@/contexts/ProjectContext";
+import { useProjectContext } from "@/contexts/ProjectProvider";
 
 const Project = ({ project }: { project: ProjectType }) => {
   const { project: selectedProject, setProject: setSelectedProject } =

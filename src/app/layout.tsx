@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import SectionProvider from "../contexts/SectionProvider";
-import ProjectProvider from "../contexts/ProjectContext";
-import { SanityLive } from "@/sanity/lib/live";
+import ProjectProvider from "../contexts/ProjectProvider";
+import { SanityLive, sanityFetch } from "@/sanity/lib/live";
+import NavigationProvider from "@/contexts/NavigationProvider";
+import TopNavigation from "@/components/TopNavigation";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -28,20 +18,28 @@ export const metadata: Metadata = {
   description: "Personal portfolio website",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} antialiased min-h-screen`}
+        className={`${outfit.variable} antialiased min-h-screen`}
         suppressHydrationWarning
       >
         <SectionProvider>
-          <ProjectProvider>{children}</ProjectProvider>
+          <NavigationProvider>
+            <ProjectProvider>
+              <TopNavigation />
+  
+                {children}
+  
+            </ProjectProvider>
+          </NavigationProvider>
         </SectionProvider>
         <SanityLive />
       </body>

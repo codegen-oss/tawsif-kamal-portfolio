@@ -1,17 +1,12 @@
 import React from "react";
+import { sanityFetch } from "@/sanity/lib/live";
+import { ARTICLE_QUERY } from "@/lib/queries";
 import Article from "@/components/Article";
 import { Zap } from "lucide-react";
-import { defineQuery } from "next-sanity";
-import { sanityFetch } from "@/sanity/lib/live";
-
-import { ArticleType } from "@/utils/types";
-
-const ARTICLES_QUERY = defineQuery(
-  `*[_type == "article"] | order(_createdAt desc)`
-);
+import { ArticleType } from "@/lib/types";
 
 const ArticleSection = async () => {
-  const articles = await sanityFetch({ query: ARTICLES_QUERY });
+  const articles = await sanityFetch({ query: ARTICLE_QUERY });
   return (
     <section className="container py-12">
       <div className="flex items-center gap-2 mb-6">
