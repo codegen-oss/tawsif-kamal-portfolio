@@ -10,3 +10,7 @@ export const ARTICLE_QUERY = defineQuery(
   `*[_type == "article"] | order(_createdAt desc)`
 );
 export const PROFILE_QUERY = defineQuery(`*[_type == "profile"] `);
+
+export const VIDEOS_QUERY = `{
+  "data": *[_type == "video"]
+}`;

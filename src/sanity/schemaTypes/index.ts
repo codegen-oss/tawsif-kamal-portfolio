@@ -3,7 +3,8 @@ import { articleType } from "./articleType";
 import { type SchemaTypeDefinition } from "sanity";
 import { projectType } from "./projectType";
 import { workExperienceType } from "./workExperience";
+import { videoType } from "./video";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [projectType, workExperienceType, articleType, profileType],
+  types: [projectType, workExperienceType, articleType, profileType, videoType],
 };

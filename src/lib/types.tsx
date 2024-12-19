@@ -84,9 +84,28 @@ export enum NavigationType {
   CODING = "Coding",
   VIDEOGRAPHY = "Videography",
 }
+
 export interface SectionContextType {
   section: SectionType;
   setSection: (section: SectionType) => void;
   isScrollLocked: boolean;
   setIsScrollLocked: (locked: boolean) => void;
+}
+
+export interface VideoType {
+  _id: string;
+  _type: 'video';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: string;
+  description: string;
+  videoFile: {
+    _type: 'file';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+  };
+  order: number;
 }

@@ -6,7 +6,9 @@ import ProjectProvider from "../contexts/ProjectProvider";
 import { SanityLive, sanityFetch } from "@/sanity/lib/live";
 import NavigationProvider from "@/contexts/NavigationProvider";
 import TopNavigation from "@/components/TopNavigation";
-
+import LeftContainer from "@/_sections/leftContainer";
+import { Profile } from "@/lib/types";
+import { PROFILE_QUERY } from "@/lib/queries";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -23,7 +25,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
+    const profile: Profile = (await sanityFetch({ query: PROFILE_QUERY }))
+      .data[0];
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -35,9 +38,8 @@ export default async function RootLayout({
           <NavigationProvider>
             <ProjectProvider>
               <TopNavigation />
-  
-                {children}
-  
+              <LeftContainer profile={profile} />
+              {children}
             </ProjectProvider>
           </NavigationProvider>
         </SectionProvider>
